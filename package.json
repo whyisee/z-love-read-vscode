@@ -1,0 +1,171 @@
+{
+  "name": "zloveread",
+  "displayName": "zLoveRead",
+  "description": "VSCode 电子书阅读插件，支持 TXT 和 EPUB 格式，提供舒适的阅读体验",
+  "publisher": "zlove",
+  "author": {
+    "name": "zlove"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/zloveread"
+  },
+  "keywords": [
+    "ebook",
+    "reader",
+    "txt",
+    "epub",
+    "reading"
+  ],
+  "version": "0.0.1",
+  "readme": "README.md",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "zloveread.loadBook",
+        "title": "加载电子书"
+      },
+      {
+        "command": "zloveread.nextLine",
+        "title": "下一行"
+      },
+      {
+        "command": "zloveread.prevLine",
+        "title": "上一行"
+      },
+      {
+        "command": "zloveread.setBookPath",
+        "title": "设置电子书目录"
+      },
+      {
+        "command": "zloveread.selectBook",
+        "title": "选择电子书"
+      },
+      {
+        "command": "zloveread.toggleReader",
+        "title": "切换阅读视图"
+      },
+      {
+        "command": "zloveread.manageBooks",
+        "title": "管理阅读历史"
+      },
+      {
+        "command": "zloveread.reloadContent",
+        "title": "重新加载当前内容"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "zloveread.nextLine",
+        "key": "alt+.",
+        "mac": "cmd+."
+      },
+      {
+        "command": "zloveread.prevLine",
+        "key": "alt+,",
+        "mac": "cmd+,"
+      },
+      {
+        "command": "zloveread.toggleReader",
+        "key": "alt+r",
+        "mac": "cmd+r"
+      },
+      {
+        "command": "zloveread.manageBooks",
+        "key": "alt+m",
+        "mac": "cmd+m"
+      }
+    ],
+    "configuration": {
+      "title": "Z Love Read",
+      "properties": {
+        "zloveread.currentBook": {
+          "type": "string",
+          "default": "",
+          "description": "当前正在阅读的书籍"
+        },
+        "zloveread.bookPath": {
+          "type": "string",
+          "default": "",
+          "description": "电子书目录路径"
+        },
+        "zloveread.readingProgress": {
+          "type": "object",
+          "default": {},
+          "description": "阅读进度"
+        },
+        "zloveread.lastReadTime": {
+          "type": "object",
+          "default": {},
+          "description": "最后阅读时间"
+        },
+        "zloveread.dailyReadingStats": {
+          "type": "object",
+          "default": {},
+          "description": "每日阅读字数统计"
+        },
+        "zloveread.lineLength": {
+          "type": "number",
+          "default": 15,
+          "minimum": 5,
+          "maximum": 50,
+          "description": "每行显示的字数"
+        },
+        "zloveread.showProgress": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否显示阅读进度"
+        },
+        "zloveread.statusBarOrder": {
+          "type": "string",
+          "default": "1",
+          "description": "状态栏显示顺序: 1=进度-字数-内容, 2=进度-内容-字数, 3=字数-进度-内容, 4=字数-内容-进度, 5=内容-进度-字数, 6=内容-字数-进度",
+          "enum": ["1", "2", "3", "4", "5", "6"]
+        },
+        "zloveread.statusBarPosition": {
+          "type": "string",
+          "default": "left",
+          "description": "状态栏位置 (left=左侧, right=右侧)",
+          "enum": ["left", "right"]
+        },
+        "zloveread.statusBarPriority": {
+          "type": "number",
+          "default": 100,
+          "description": "状态栏优先级 (数字越大越靠前)",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "epub": "^1.2.1"
+  }
+}
