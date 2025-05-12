@@ -1,14 +1,15 @@
 {
-  "name": "zloveread",
-  "displayName": "zLoveRead",
-  "description": "VSCode 电子书阅读插件，支持 TXT 和 EPUB 格式，提供舒适的阅读体验",
-  "publisher": "zlove",
+  "name": "z-love-read-vscode",
+  "displayName": "z-love-read-vscode",
+  "description": "VSCode 电子书阅读插件，支持 TXT 和 EPUB 格式，提供舒适的阅读体验,极致的摸鱼体验。",
+  "icon": "icon.png",
+  "publisher": "whyisee",
   "author": {
-    "name": "zlove"
+    "name": "whyisee"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/zloveread"
+    "url": "https://github.com/whyisee/z-love-read-vscode"
   },
   "keywords": [
     "ebook",
@@ -17,10 +18,10 @@
     "epub",
     "reading"
   ],
-  "version": "0.0.1",
+  "version": "0.0.3",
   "readme": "README.md",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Other"
@@ -157,7 +158,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@types/vscode": "^1.96.0",
+    "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
     "@vscode/test-cli": "^0.0.10",
